@@ -112,8 +112,6 @@ plt.imshow(cropped_image)
 plt.title("Cropped Image")
 plt.axis('off')
 plt.show()
-Developed By: VIGNESH.V
-Register Number: 212223230241
 
 ```
 ## Output:
