@@ -34,10 +34,7 @@ Find the reflection of the image.
 
 Rotate the image using angle function.
 ## Program:
-```
-Developed By: Bharathganesh S
-Register Number: 212222230022
-```
+
 ```
 i)Image Translation
 import cv2
