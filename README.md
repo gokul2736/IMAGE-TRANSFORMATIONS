@@ -9,112 +9,154 @@ To perform image transformation such as Translation, Scaling, Shearing, Reflecti
 ## Software Required:
 Anaconda - Python 3.7
 
-## Algorithm :
-### Step 1 :
+## Algorithm:
+### Step1:
 
-Import necessary libraries such as OpenCV, NumPy, and Matplotlib for image processing and visualization.
+Import the necessary libraries and read the original image and save it as a image variable.
 
-### Step 2 :
+### Step2:
 
+Translate the image using a function warpPerpective()
 
-Read the input image using cv2.imread() and store it in a variable for further processing.
+### Step3:
 
-### Step 3 :
+Scale the image by multiplying the rows and columns with a float value.
 
-Apply various transformations like translation, scaling, shearing, reflection, rotation, and cropping by defining corresponding functions:
+### Step4:
 
-1.Translation moves the image along the x or y-axis. 2.Scaling resizes the image by scaling factors. 3.Shearing distorts the image along one axis. 4.Reflection flips the image horizontally or vertically. 5.Rotation rotates the image by a given angle.
+Shear the image in both the rows and columns.
 
-### Step 4 :
+### Step5:
 
+Find the reflection of the image.
 
-Display the transformed images using Matplotlib for visualization. Convert the BGR image to RGB format to ensure proper color representation.
+### Step6:
 
-### Step 5 :
-
-
-Save or display the final transformed images for analysis and use plt.show() to display them inline in Jupyter or compatible environments.
-
-## Program :
-```python
-
+Rotate the image using angle function.
+## Program:
+```
+Developed By: Bharathganesh S
+Register Number: 212222230022
+```
+```
+i)Image Translation
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
 
 # Load the image
-image = cv2.imread('nature.jpg')
-image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert BGR to RGB for Matplotlib
+image = cv2.imread('cat.jpg')
 
-# 1. Image Translation
-rows, cols, _ = image.shape
-M_translate = np.float32([[1, 0, 50], [0, 1, 100]])  # Translate by (50, 100) pixels
-translated_image = cv2.warpAffine(image_rgb, M_translate, (cols, rows))
+# Define translation matrix: (shift along x, shift along y)
+tx, ty = 100, 50
+translation_matrix = np.float32([[1, 0, tx], [0, 1, ty]])
 
-# 2. Image Scaling
-scaled_image = cv2.resize(image_rgb, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_LINEAR)  # Scale by 1.5x
+# Apply translation
+translated_image = cv2.warpAffine(image, translation_matrix, (image.shape[1], image.shape[0]))
 
-# 3. Image Shearing
-M_shear = np.float32([[1, 0.5, 0], [0.5, 1, 0]])  # Shear with factor 0.5
-sheared_image = cv2.warpAffine(image_rgb, M_shear, (int(cols * 1.5), int(rows * 1.5)))
+# Display
+cv2.imshow('Translated Image', translated_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
-# 4. Image Reflection (Flip)
-reflected_image = cv2.flip(image_rgb, 1)  # Horizontal reflection (flip along y-axis)
+ii) Image Scaling
+# Scaling factors
+scale_x, scale_y = 1.5, 1.5
 
-# 5. Image Rotation
-M_rotate = cv2.getRotationMatrix2D((cols / 2, rows / 2), 45, 1)  # Rotate by 45 degrees
-rotated_image = cv2.warpAffine(image_rgb, M_rotate, (cols, rows))
+# Resize image
+scaled_image = cv2.resize(image, None, fx=scale_x, fy=scale_y, interpolation=cv2.INTER_LINEAR)
 
-# 6. Image Cropping
-cropped_image = image_rgb[50:300, 100:400]  # Crop a portion of the image
+# Display
+cv2.imshow('Scaled Image', scaled_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
-# Plot the original and transformed images
-plt.figure(figsize=(12, 8))
+iii)Image shearing
+# Define shearing matrix
+shear_factor = 0.5
+shearing_matrix = np.float32([[1, shear_factor, 0], [0, 1, 0]])
 
-plt.subplot(2, 3, 1)
-plt.imshow(image_rgb)
-plt.title("Original Image")
-plt.axis('off')
+# Apply shearing
+sheared_image = cv2.warpAffine(image, shearing_matrix, (int(image.shape[1] * 1.5), image.shape[0]))
 
-plt.subplot(2, 3, 2)
-plt.imshow(translated_image)
-plt.title("Translated Image")
-plt.axis('off')
+# Display
+cv2.imshow('Sheared Image', sheared_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
-plt.subplot(2, 3, 3)
-plt.imshow(scaled_image)
-plt.title("Scaled Image")
-plt.axis('off')
+iv)Image Reflection
+ Reflection_Image= cv2.flip(image, 1)
 
-plt.subplot(2, 3, 4)
-plt.imshow(sheared_image)
-plt.title("Sheared Image")
-plt.axis('off')
+# Display
+cv2.imshow('Reflection Image', Reflection_Image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
-plt.subplot(2, 3, 5)
-plt.imshow(reflected_image)
-plt.title("Reflected Image")
-plt.axis('off')
+v)Image Rotation
+# Rotation center, angle and scale
+center = (image.shape[1] // 2, image.shape[0] // 2)
+angle, scale = 45, 1.0
 
-plt.subplot(2, 3, 6)
-plt.imshow(rotated_image)
-plt.title("Rotated Image")
-plt.axis('off')
+# Get rotation matrix
+rotation_matrix = cv2.getRotationMatrix2D(center, angle, scale)
 
-plt.tight_layout()
-plt.show()
+# Apply rotation
+rotated_image = cv2.warpAffine(image, rotation_matrix, (image.shape[1], image.shape[0]))
 
-# Plot cropped image separately as its aspect ratio may be different
-plt.figure(figsize=(4, 4))
-plt.imshow(cropped_image)
-plt.title("Cropped Image")
-plt.axis('off')
-plt.show()
+# Display
+cv2.imshow('Rotated Image', rotated_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+vi)Image Cropping
+# Define the region of interest (ROI)
+x, y, w, h = 100, 100, 300, 300
+cropped_image = image[y:y+h, x:x+w]
+
+# Display
+cv2.imshow('Cropped Image', cropped_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 ```
 ## Output:
 
-![image](https://github.com/user-attachments/assets/bbbb3159-3a9c-4975-97ac-0fd00895fd54)
+## Original image
+
+![image](https://github.com/user-attachments/assets/da97cc21-ee27-4541-8db5-0bdd5df99eec)
+
+### i)Image Translation
+
+![image](https://github.com/user-attachments/assets/d10ceccf-24d2-4818-9d5d-9b870c9e35df)
+
+
+### ii) Image Scaling
+
+![image](https://github.com/user-attachments/assets/3ebcea28-9d82-4568-bb8d-18afcbdd088e)
+
+
+### iii)Image shearing
+![image](https://github.com/user-attachments/assets/61a75e75-7830-446d-902d-ccde8e645862)
+
+![image](https://github.com/user-attachments/assets/c8d1d66d-9d67-48e0-84c6-d7e3a983b225)
+
+### iv)Image Reflection
+
+![image](https://github.com/user-attachments/assets/9e1e0f48-2566-4cbb-ad51-ce55d8a3e60b)
+
+![image](https://github.com/user-attachments/assets/2b561dd9-9aac-4b1c-a531-fe2448868c4c)
+
+
+### v)Image Rotation
+![image](https://github.com/user-attachments/assets/01a8c573-4462-46d7-b39c-5f47486b90e6)
+
+
+
+
+### vi)Image Cropping
+![image](https://github.com/user-attachments/assets/27ad0f61-d896-4ba2-98d5-76490fe8fe1e)
+
+
+
 
 
 ## Result: 
