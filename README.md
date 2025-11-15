@@ -134,7 +134,7 @@ plt.show()
 ```
 ## OUPUT :
 
-<img width="165" height="136" alt="image" src="https://github.com/user-attachments/assets/c4293797-f0ed-44a5-9f93-36e6b00fd5d3" />
+<img width="165" height="136" alt="image" src="https://github.com/user-attachments/assets/7d436d86-76b6-4175-985a-a343c0119309" />
 
 ### v)Image Rotation
 ```python
@@ -153,7 +153,7 @@ plt.imshow(rotated_img)
 plt.show()
 ```
 ## OUPUT :
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/312d2c70-6cca-4f31-a0db-2ebd67a2fd49)
+<img width="165" height="136" alt="image" src="https://github.com/user-attachments/assets/266b1bb5-2136-409a-aef3-f88d5399d7d1" />
 
 
 ### vi)Image Cropping
