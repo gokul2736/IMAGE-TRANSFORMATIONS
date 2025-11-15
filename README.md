@@ -55,7 +55,7 @@ plt.imshow(image)
 plt.show()
 ```
 ## OUPUT :
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/e258159b-cf6f-4c56-9a62-22f39ad47ecc)
+<img width="165" height="136" alt="image" src="https://github.com/user-attachments/assets/6ce7e524-8db8-4092-bf27-d8f44957a250" />
 
 ### i)Image Translation
 ```python
@@ -73,7 +73,7 @@ plt.imshow(translated_image)
 plt.show()
 ```
 ## OUPUT :
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/30651e12-b8a4-4dd2-9cc9-3cd4a900b3fc)
+<img width="165" height="136" alt="image" src="https://github.com/user-attachments/assets/55e30d7c-9555-4f4b-8ece-d5c01d829d4e" />
 
 ### ii) Image Scaling
 ```python
@@ -91,7 +91,7 @@ plt.imshow(scaled_image)
 plt.show()
 ```
 ## OUPUT :
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/9b0bee0f-f070-4c1c-993f-64001fdb22b6)
+<img width="165" height="136" alt="image" src="https://github.com/user-attachments/assets/ba0b8564-bc6c-4478-b88c-e40fbef6d4bc" />
 
 ### iii)Image shearing
 ```python
@@ -112,7 +112,7 @@ plt.imshow(sheared_img_yaxis)
 plt.show()
 ```
 ## OUTPUT :
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/7a2831ff-c2d3-4b28-be2b-d218247ff2ab)
+<img width="165" height="136" alt="image" src="https://github.com/user-attachments/assets/df6a2fdb-2b02-4f43-a323-edf088522413" />
 
 ### iv)Image Reflection
 ```python
@@ -134,7 +134,7 @@ plt.show()
 ```
 ## OUPUT :
 
-<img width="319" alt="image" src="https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/f5695a57-86f5-4de2-802e-266ab6ce3789">
+<img width="165" height="136" alt="image" src="https://github.com/user-attachments/assets/c4293797-f0ed-44a5-9f93-36e6b00fd5d3" />
 
 ### v)Image Rotation
 ```python
@@ -171,7 +171,7 @@ plt.imshow(cropped_img)
 plt.show()
 ```
 ## OUPUT :
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/9c57bae7-d560-443b-ba55-ad821dc93206)
+<img width="165" height="136" alt="image" src="https://github.com/user-attachments/assets/9a42d6bb-fdc5-402e-ad05-5baa28ff9a3e" />
 
 ## Result: 
 
